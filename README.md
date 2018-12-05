@@ -1,8 +1,8 @@
 <img height="128px" width="128px" align="right" />
 
-# fuzzy-systems
+# fuzzy-system
 
-> One line description here!
+> Connecting to NASA API to view the image of the day
 
 <table>
 	<thead>
@@ -30,6 +30,8 @@
 </table>
 
 ### Getting Started
+
+##### Go to NASA's site for Open APIs and get a key at https://api.nasa.gov/#apply-for-an-api-key
 
 #### Prerequisites
 
