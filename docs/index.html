@@ -1,93 +1,91 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-	<!-- Metadata -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
 
-	<!-- Title -->
-	<title>LaunchNode</title>
+    <!-- Title -->
+    <title>Fuzzy Systems</title>
 
-	<!-- Thumbnails -->
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <!-- Thumbnails -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<!-- Inline Style -->
-	<style>
-		body {
+    <!-- Inline Style -->
+    <style>
+        body {
 			padding-top: 50px;
 			padding-bottom: 20px;
 		}
 	</style>
 
 </head>
+
 <body>
 
     <!-- #main -->
     <main role="main">
 
         <div class="jumbotron"></div>
-        
 
+        <b>API URL:</b>
+        <pre id="reqObject"></pre>
 
-        <body>
-            <b>API URL:</b>
-            <pre id="reqObject"></pre>
-            
-            
-            <img id="apod_img_id" width="250px"/>
-            
-            <iframe id="apod_vid_id" type="text/html" width="640" height="385" frameborder="0"></iframe>
-            <p id="copyright"></p>
-            
-            <h3 id="apod_title"></h3>
-            <p id="apod_explaination"></p>
-            <br/>
-            <b>Return Object:</b>
-            <pre id="returnObject"></pre>
-          </body>
+        <img id="apod_img_id" width="250px" />
 
-	</main>
+        <iframe id="apod_vid_id" type="text/html" width="640" height="385" frameborder="0"></iframe>
+        <p id="copyright"></p>
 
-	<!-- Libraries -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <h3 id="apod_title"></h3>
+        <p id="apod_explaination"></p>
+        <br />
+        <b>Return Object:</b>
+        <pre id="returnObject"></pre>
 
-	<!-- Inline Script -->
-	<script>
+    </main>
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <!-- Inline Script -->
+    <script>
         var url = "https://api.nasa.gov/planetary/apod?api_key=LKVQ0ZOycxqbnXO2Mc0oqepDQAhkBQsfYX4cWzWv";
 
         $.ajax({
-        url: url,
-        success: function(result){
-        if("copyright" in result) {
-            $("#copyright").text("Image Credits: " + result.copyright);
-        }
-        else {
-            $("#copyright").text("Image Credits: " + "Public Domain");
-        }
-        
-        if(result.media_type == "video") {
-            $("#apod_img_id").css("display", "none"); 
-            $("#apod_vid_id").attr("src", result.url);
-        }
-        else {
-            $("#apod_vid_id").css("display", "none"); 
-            $("#apod_img_id").attr("src", result.url);
-        }
-        $("#reqObject").text(url);
-        $("#returnObject").text(JSON.stringify(result, null, 4));  
-        $("#apod_explaination").text(result.explanation);
-        $("#apod_title").text(result.title);
-        }
+            url: url,
+            success: function (result) {
+                if ("copyright" in result) {
+                    $("#copyright").text("Image Credits: " + result.copyright);
+                }
+                else {
+                    $("#copyright").text("Image Credits: " + "Public Domain");
+                }
+
+                if (result.media_type == "video") {
+                    $("#apod_img_id").css("display", "none");
+                    $("#apod_vid_id").attr("src", result.url);
+                }
+                else {
+                    $("#apod_vid_id").css("display", "none");
+                    $("#apod_img_id").attr("src", result.url);
+                }
+                $("#reqObject").text(url);
+                $("#returnObject").text(JSON.stringify(result, null, 4));
+                $("#apod_explaination").text(result.explanation);
+                $("#apod_title").text(result.title);
+            }
         });
     </script>
 
 </body>
+
 </html>
