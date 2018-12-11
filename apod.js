@@ -1,5 +1,4 @@
-
-var url = "https://api.nasa.gov/planetary/apod?api_key=LKVQ0ZOycxqbnXO2Mc0oqepDQAhkBQsfYX4cWzWv";
+var url = "https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo";
 
 
 $.ajax({
