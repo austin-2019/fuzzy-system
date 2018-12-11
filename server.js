@@ -30,7 +30,13 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", function(request, response) {
 	config.get("apiKey");
 
-	response.render("pages/index");
+	response.render("pages/index", { "hello": "world" });
+});
+
+app.get("/dataFromNasa", function(request, response) {
+	requestJs.get("https://api.nasa.gov/planetary/apod?api_key=" + config.get("apiKey"), function(/* */) {
+		response.send(/* */);
+	});
 });
 
 // </Routes>
