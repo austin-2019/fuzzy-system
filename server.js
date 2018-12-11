@@ -35,7 +35,7 @@ app.get("/", function(request, response) {
 
 app.get("/dataFromNasa", function(request, response) {
 	requestJs.get("https://api.nasa.gov/planetary/apod?api_key=" + config.get("apiKey"), function(error, httpResponse, body) {
-		response.send(/* */);
+		response.send(body);
 	});
 });
 
