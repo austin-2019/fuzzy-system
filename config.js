@@ -17,7 +17,7 @@ let config = convict({
 	"apiKey": {
 		"doc": "The NASA API key.",
 		"format": "*",
-		"default": "NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo",
+		"default": "LKVQ0ZOycxqbnXO2Mc0oqepDQAhkBQsfYX4cWzWv",
 		"env": "API_KEY",
 		"arg": "apiKey"
 	}
