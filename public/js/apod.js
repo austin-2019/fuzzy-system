@@ -19,7 +19,7 @@ $.ajax({
       $("#apod_vid_id").css("display", "none");
       $("#apod_img_id").attr("src", result.url);
     }
-    $("#reqObject").text(result.url);
+    $("#reqObject").text(result.url.explanation);
     //$("#returnObject").text(JSON.stringify(result, null, 4));
     
     $("#returnObject").text(JSON.stringify(result, null, 4));
