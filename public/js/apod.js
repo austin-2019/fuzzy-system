@@ -21,7 +21,7 @@ $.ajax({
     }
     //$("#reqObject").text('Hello' + result.explanation);
     
-    $("#reqObject").text('Hello' + result.body.explanation);
+    $("#reqObject").text('Hello' + result);
     //$("#returnObject").text(JSON.stringify(result, null, 4));
     
     //$("#returnObject").text(JSON.stringify(result, null, 4));
