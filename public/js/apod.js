@@ -19,7 +19,9 @@ $.ajax({
       $("#apod_vid_id").css("display", "none");
       $("#apod_img_id").attr("src", result.url);
     }
-    $("#reqObject").text('Hello' + result.explanation);
+    //$("#reqObject").text('Hello' + result.explanation);
+    
+    $("#reqObject").text('Hello' + result.body.explanation);
     //$("#returnObject").text(JSON.stringify(result, null, 4));
     
     //$("#returnObject").text(JSON.stringify(result, null, 4));
