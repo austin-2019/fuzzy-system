@@ -2,31 +2,35 @@
 $.ajax({
   url: "/dataFromNasa",
   success: function (result) {
-    if (result.copyright) {
-      $("#copyright").text("Image Credits: " + result.copyright);
+    let parsedResult = JSON.parse(result);
+
+
+    if (parsedResult.copyright) {
+      $("#copyright").text("Image Credits: " + parsedResult.copyright);
     }
     else {
       $("#copyright").text("Image Credits: " + "Public Domain");
-      console.log(result);
+      console.log(parsedResult);
     }
 
-    if (result.media_type == "video") {
+    if (parsedResult.media_type == "video") {
       $("#apod_img_id").css("display", "none");
-      $("#apod_vid_id").attr("src", result.url);
+      $("#apod_vid_id").attr("src", parsedResult.url);
     }
     
     else {
       $("#apod_vid_id").css("display", "none");
-      $("#apod_img_id").attr("src", result.url);
+      $("#apod_img_id").attr("src", parsedResult.url);
     }
     //$("#reqObject").text('Hello' + result.explanation);
+
     
-    $("#reqObject").text('Hello' + result);
-    //$("#returnObject").text(JSON.stringify(result, null, 4));
+    $("#reqObject").text('Hello' + parsedResult);
+    $("#reqObject").text(parsedResult.url);
     
     //$("#returnObject").text(JSON.stringify(result, null, 4));
-    $("#apod_explanation").text(result.explanation);
-    $("#apod_title").text(result.title);
+    $("#apod_explanation").text(parsedResult.explanation);
+    $("#apod_title").text(parsedResult.title);
   }
   
 });
